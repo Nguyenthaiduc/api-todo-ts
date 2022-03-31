@@ -1,9 +1,11 @@
-import express from 'express';
+import express,{Request,Response} from 'express';
 
 const app = express();
 const port : number = 5000
 
-app.get('/', (req, res) => {})
+app.get('/', (req:Request, res:Response) => {
+    res.send("Hello World")
+})
 
 app.listen(port, ()=>{
     console.log(`listening on port ${port}`)
