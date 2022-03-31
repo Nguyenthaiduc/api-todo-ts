@@ -1,5 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express';
 import Todo from '../models/todo'
+import createError  from 'http-errors'
 export const getAllTodos = async (req: Request, res: Response) => {
     //tra ve tat ca du lieu cua todo
     try {
@@ -95,4 +96,34 @@ export const deleteTodo = async (req:Request, res:Response) => {
             message : err.message
         })
     }
+}
+export const getATodo = async (req: Request, res: Response)=>{
+    try{
+        const getTodo = await Todo.findById({_id:req.params.id})
+        if(!getTodo){
+            return res.status(400).json({
+                success: false,
+                message:"Không tìm thấy id",
+            })
+        }
+        return res.status(200).json({
+            success: true,
+            todo: getTodo
+        })
+    }catch (err) {
+        return res.status(400).json({
+            success: false,
+            message: err.message,
+        })
+    }
+}
+export const createErrorStatus = (req:Request, res:Response,next:NextFunction) => {
+    next(createError(404))
+}
+export const errorHandler = (err:any, req:Request, res:Response, next:NextFunction) => {
+    res.locals.message = err.message
+        res.locals.err = req.app.get('env') === 'development' ? err : {}
+        //render
+        res.status(err.status || 500)
+        res.render('error')
 }
