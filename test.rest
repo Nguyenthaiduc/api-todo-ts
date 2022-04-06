@@ -1,0 +1,9 @@
+GET http://localhost:5000/api/v1/todos
+Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik5URCIsImlhdCI6MTY0OTIzNjQ1MSwiZXhwIjoxNjQ5MjM2NDk2fQ.2d1L4zjZ9VHV6lYpVjQL-DW2IvGbTay8WfU2AnUbgFk
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "username": "NTD"
+}
