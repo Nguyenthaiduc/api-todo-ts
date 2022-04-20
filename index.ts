@@ -4,12 +4,14 @@ import dotenv from 'dotenv'
 import mongoose from 'mongoose';
 import api from './routes/todo'
 import { errorHandler } from './controller/';
-import auth from './middleware/authorization'
+import auth from './middleware/authorization';
+import cors from 'cors';
 dotenv.config();
 
 const app: Application = express();
 
 //middleware
+app.use(cors());
 app.use(morgan("dev"))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -39,3 +41,4 @@ app.get('/', (req: Request, res: Response) => {
 app.listen(port, () => {
   console.log(`listening on port ${port}`)
 });
+

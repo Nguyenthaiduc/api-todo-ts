@@ -1,5 +1,5 @@
 GET http://localhost:5000/api/v1/todos
-Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik5URCIsImlhdCI6MTY0OTI0NDI0MywiZXhwIjoxNjQ5MjQ0Mjg4fQ.uD15_6o8sTwwLDPkV7oDZwoffWucpyJNXGAoPoWEeEs
+Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik5URCIsImlhdCI6MTY0OTg1NTc3NSwiZXhwIjoxNjQ5ODU1ODIwfQ.H3fnTEnPcGkS4ZtgvqInU2q1_9NlGGatw1TFQx69OFE
 ###
 POST http://localhost:5000/login
 Content-Type: application/json
@@ -7,3 +7,8 @@ Content-Type: application/json
 {
     "username": "NTD"
 }
+###
+
+GET http://localhost:5000/
+###
+GET http://localhost:5000/api/v1/todos

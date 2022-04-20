@@ -4,7 +4,7 @@ import authenToken from '../middleware/authenToken';
 const router = express.Router();
 
 //Get All Todo
-router.get('/todos',authenToken,getAllTodos)
+router.get('/todos',getAllTodos)
 router.post('/todos',createTodo)
 router.patch('/todos/:id',authenToken,updateTodo)
 router.delete('/todos/:id',authenToken,deleteTodo)
