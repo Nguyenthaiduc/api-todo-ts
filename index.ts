@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import dotenv from 'dotenv'
 import mongoose from 'mongoose';
 import api from './routes/todo'
+import userRouter from './routes/user'
 import { errorHandler } from './controller/';
 import auth from './middleware/authorization';
 import cors from 'cors';
@@ -16,6 +17,7 @@ app.use(morgan("dev"))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use('/api/v1', api)
+app.use('',userRouter)
 app.use(errorHandler)
 app.use('', auth)
 

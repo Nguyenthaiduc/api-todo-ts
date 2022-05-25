@@ -97,7 +97,7 @@ export const deleteTodo = async (req:Request, res:Response) => {
         })
     }
 }
-export const getATodo = async (req: Request, res: Response)=>{
+export const getATodo = async (req: Request, res: Response) : Promise<Response> =>{
     try{
         const getTodo = await Todo.findById({_id:req.params.id})
         if(!getTodo){
